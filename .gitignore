@@ -1,0 +1,4 @@
+# Rust build files
+target/
+*.db  # Ignore database file
+config.json  # Don't commit real config (use example)
