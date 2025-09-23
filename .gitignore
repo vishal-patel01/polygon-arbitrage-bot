@@ -1,4 +1,21 @@
-# Rust build files
+# Rust build artifacts
 target/
-*.db  # Ignore all database files like arbitrage.db
-config.json  # Ignore real config (use config.json.example)
+Cargo.lock  # Optional: Include if you don't want lockfile in repo
+
+# Database files
+*.db
+*.db-journal
+arbitrage.db
+
+# Config examples (don't commit real secrets)
+config.json
+!config.json.example
+
+# Logs and temp files
+*.log
+.env
+
+# IDE files
+.vscode/
+*.swp
+*.swo
