@@ -6,11 +6,15 @@ use serde::Deserialize;
 use anyhow::{Result, Context};
 use log::{info, error};
 use sqlx::SqlitePool;
-use chrono::Utc;
+use chrono::{FixedOffset, Utc};
+use std::io::Write;
+       // For writeln! on the Formatter
+use env_logger::fmt::Formatter; // For the formatter parameter type
+use std::fmt;               // For fmt::Result (return type)
 
 abigen!(
     UniswapV2Router,
-    r#"[
+    r#"[ 
         function getAmountsOut(uint amountIn, address[] memory path) external view returns (uint[] memory amounts)
     ]"#
 );
@@ -46,10 +50,30 @@ struct PriceQuote {
 const BASE_TOKEN_DECIMALS: u32 = 18;  // WETH decimals
 const QUOTE_TOKEN_DECIMALS: u32 = 6;  // USDC decimals
 
+fn get_ist_offset() -> FixedOffset {
+    FixedOffset::east_opt(19800).expect("Invalid IST offset (UTC+5:30)")
+}
+
 #[tokio::main]
 async fn main() -> Result<()> {
-    // Initialize logger
-    env_logger::init();
+    // Custom env_logger setup with IST timestamps via full formatter
+    let ist_offset = get_ist_offset();
+   env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info"))
+    .format(move |f: &mut env_logger::fmt::Formatter, record: &log::Record| -> std::io::Result<()> {
+        let now_utc = Utc::now();
+        let now_ist = now_utc.with_timezone(&ist_offset);
+        let timestamp_str = now_ist.format("%Y-%m-%d %H:%M:%S").to_string();
+
+        writeln!(
+            f,
+            "[{} IST] {} {} - {}",
+            timestamp_str,
+            record.level(),
+            record.module_path().unwrap_or("<unknown>"),
+            record.args()
+        )
+    })
+    .init();
 
     info!("Current working directory: {:?}", std::env::current_dir().context("Failed to get current directory")?);
 
@@ -62,8 +86,8 @@ async fn main() -> Result<()> {
         .context("Failed to create provider from RPC URL")?;
     let client = Arc::new(provider);
 
-    // Connect to SQLite database
-    let db_pool = SqlitePool::connect("sqlite:C:/Deqode_project/polygon-arbitrage-bot/arbitrage.db")
+    // Connect to SQLite database (use sqlite:// for sqlx)
+    let db_pool = SqlitePool::connect("sqlite://C:/Deqode_project/polygon-arbitrage-bot/arbitrage.db")
         .await
         .context("Failed to connect to SQLite database")?;
 
@@ -215,7 +239,8 @@ fn detect_arbitrage(
     gas_cost: f64,
     min_profit_threshold: f64,
 ) -> Option<f64> {
-    let profit = (sell.price - buy.price) * trade_size - gas_cost;
+    let fee = 0.003; // 0.3% DEX fee per swap
+    let profit = (sell.price * (1.0 - fee) - buy.price * (1.0 + fee)) * trade_size - gas_cost;
 
     if profit > min_profit_threshold {
         Some(profit)
@@ -233,9 +258,11 @@ async fn store_opportunity(
     sell_price: f64,
     profit: f64,
 ) -> Result<()> {
-    // Get current UTC time and format as string
-    let now = Utc::now().naive_utc();
-    let now_str = now.format("%Y-%m-%d %H:%M:%S").to_string();
+    // Get current IST (Kolkata) time and format as string
+    let ist_offset = get_ist_offset();
+    let now_utc = Utc::now();
+    let now_ist = now_utc.with_timezone(&ist_offset);
+    let now_str = now_ist.format("%Y-%m-%d %H:%M:%S").to_string();
 
     sqlx::query(
         r#"
@@ -243,7 +270,7 @@ async fn store_opportunity(
         VALUES (?, ?, ?, ?, ?, ?, ?)
         "#,
     )
-    .bind(now_str)       // Bind timestamp as formatted string
+    .bind(now_str)       // Bind timestamp as formatted IST string
     .bind(dex_buy)
     .bind(dex_sell)
     .bind(token_pair)
