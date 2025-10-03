@@ -1,0 +1,164 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-8pt}\scshape\raggedright\normalsize\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-8pt}]
+
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item{#1 \vspace{-2pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-3pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2\\
+    \end{tabular*}\vspace{-4pt}
+}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={},topsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\LARGE \scshape Vishal Patel} \\ \vspace{1pt}
+    Indore, India ~
+    \href{tel:+918435443775}{+91-8435443775} ~
+    \href{mailto:vishal1807patel@gmail.com}{vishal1807patel@gmail.com} ~
+    \href{https://www.linkedin.com/in/vishalpatel362}{Linkedin.com/in/vishalpatel362} ~
+    \href{https://github.com/vishal362patel}{GitHub}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Professional Summary}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item SRE/Platform-focused Software Engineer with 2+ years across \textbf{Java, Python, Kubernetes, AWS, Terraform, Ansible, GitOps, Prometheus/Grafana, OpenTelemetry}. Built and operated \textbf{multi-tenant, high-throughput} services and \textbf{ML/GenAI inference} components with SLO-driven reliability. Strong CS fundamentals (OS, networking, security) and hands-on experience with \textbf{Ray Serve}, CI/CD, performance tuning, and cost optimization in hybrid cloud.
+\end{itemize}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item \textbf{Languages:} Java (Spring Boot), Python (FastAPI, automation), Bash, SQL
+    \item \textbf{Cloud/Infra:} AWS (EKS, EC2, S3, IAM, ALB/NLB, VPC), Hybrid Cloud, Linux
+    \item \textbf{Kubernetes:} HPA/VPA, PDBs, requests/limits, RBAC, NetworkPolicies, Helm, \textbf{Argo CD/Argo Rollouts} (GitOps, canary/blue-green)
+    \item \textbf{Observability:} \textbf{Prometheus, Grafana, Alertmanager}, \textbf{OpenTelemetry} (traces/metrics), ELK/Loki
+    \item \textbf{DevOps/IaC:} Terraform, Ansible, Docker, GitHub Actions, Jenkins
+    \item \textbf{Data/Messaging:} PostgreSQL, MySQL, \textbf{Kafka}, RabbitMQ, Redis
+    \item \textbf{Security/Networking:} IAM/IRSA, KMS/Secrets Manager, TLS/mTLS, Pod Security, Ingress (ALB/NLB), VPC design
+    \item \textbf{ML/GenAI:} \textbf{Ray, Ray Serve}, OpenAI APIs, Google Gemini API, model serving, inference scaling
+    \item \textbf{Concepts:} \textbf{SRE (SLO/SLI, error budgets, incident response)}, distributed systems, multi-tenant design, cost optimization
+\end{itemize}
+
+%------------------------- 
+% Professional Experience 
+%------------------------- 
+\section{Professional Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Gruslabs Software Solutions Pvt. Ltd.}{Jan 2025 -- Aug 2025}
+{Software Engineer (Platform/SRE)}{Indore, India}
+\resumeItemListStart
+\resumeItem{Owned reliability for \textbf{EKS-hosted, multi-tenant Spring Boot services}; defined SLOs (99.9\% availability, p95 latency 250ms), \textbf{instrumented OpenTelemetry} and \textbf{Prometheus} metrics, and shipped \textbf{Grafana} dashboards and \textbf{Alertmanager} policies; reduced \textbf{MTTR from 45m to 18m}.}
+\resumeItem{Implemented \textbf{GitOps} with \textbf{Argo CD} and progressive delivery via \textbf{Argo Rollouts} (canary/blue-green) with automated rollback on SLO breach; cut failed releases by \textbf{60\%}.}
+\resumeItem{Scaled services using \textbf{HPA}, resource \textbf{requests/limits}, and \textbf{PDBs}; improved peak throughput by \textbf{35\%} and stabilized p95 latency under load.}
+\resumeItem{Hardened workloads with \textbf{IRSA}, \textbf{KMS}-encrypted secrets, \textbf{RBAC}, and \textbf{NetworkPolicies}; passed internal security review with zero critical findings.}
+\resumeItem{Automated environment provisioning using \textbf{Terraform} and \textbf{Ansible}; standardized service templates and runbooks; reduced deploy lead time by \textbf{40\%}.}
+\resumeItem{Optimized infra cost by \textbf{18\%} via rightsizing, storage lifecycle policies, and reserved capacity; documented DR and cluster upgrade playbooks.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Freelance/Contract}{Aug 2023 -- Aug 2024}
+{Java Full Stack Developer}{Remote}
+\resumeItemListStart
+\resumeItem{Built \textbf{Java Spring Boot} + React microservices with \textbf{REST APIs}, JWT/OAuth2, and \textbf{PostgreSQL/MySQL}; containerized with \textbf{Docker} and deployed on \textbf{AWS} (EC2/ECS/EKS).}
+\resumeItem{Implemented CI/CD with \textbf{GitHub Actions/Jenkins}; added integration tests and quality gates, improving release reliability and feedback time.}
+\resumeItem{Introduced \textbf{Prometheus/Grafana} dashboards and log centralization (ELK/Loki), enabling data-driven performance tuning (p95 latency ↓ by \textbf{25--30\%}).}
+\resumeItem{Adopted \textbf{Terraform} for repeatable infra and module reuse; improved environment parity and reduced drift.}
+\resumeItem{Collaborated with stakeholders to prioritize features, triage incidents, and deliver \textbf{multi-tenant} billing/access controls.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading{Ray Serve Inference Platform POC ~| Ray, \textbf{Ray Serve}, Python, FastAPI, Kubernetes, Argo Rollouts}{2025}
+\resumeItemListStart
+\resumeItem{Deployed two model variants behind \textbf{Ray Serve} with \textbf{A/B traffic splitting} and autoscaling; sustained \textbf{1.2k RPS} at p95 \textbf{180ms}.}
+\resumeItem{Instrumented \textbf{OpenTelemetry} traces + \textbf{Prometheus} metrics; built \textbf{Grafana} SLO dashboard and alerting; canary rollout with automated rollback on error budget burn.}
+\resumeItemListEnd
+
+\resumeProjectHeading{AI-Powered Fitness Training App ~| Java, PostgreSQL, RabbitMQ, Kubernetes (EKS), AWS, Google Gemini API}{May 2025}
+\resumeItemListStart
+\resumeItem{Designed \textbf{multi-tenant REST APIs} serving \textbf{5k+ users} with \textbf{99.9\%} SLO; \textbf{HPA}-backed scaling and \textbf{PDBs} for high availability.}
+\resumeItem{Added \textbf{RabbitMQ} for reliable async workflows (99.7\% delivery); \textbf{Prometheus/Grafana} dashboards and alerts for throughput/latency.}
+\resumeItem{Optimized SQL queries (\textbf{35\%} latency reduction); integrated \textbf{Gemini API} for recommendations, improving engagement by 20\%.}
+\resumeItemListEnd
+
+\resumeProjectHeading{Smart Email AI Assistant ~| Java, Spring Boot, Elasticsearch, Docker, OpenAI, \textbf{OpenTelemetry}}{Jun 2024 -- Nov 2024}
+\resumeItemListStart
+\resumeItem{Built Spring Boot microservices with \textbf{Elasticsearch} search (\textbf{35\%} faster queries) and \textbf{OpenAI} drafting assistance.}
+\resumeItem{Shipped automated tests and CI/CD; \textbf{OpenTelemetry} traces and ELK logs reduced production debugging time by \textbf{~25\%}.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV)}{2022 -- 2024}
+{MCA (Computer Science), CGPA: 8.3}{Indore, India}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item \href{https://www.hackerrank.com/certificates/9eae88324e5d}{HackerRank Certifications: Java, SQL, Python}
+    \item AWS Cloud Practitioner (In Progress)
+    \item Kubernetes Fundamentals (In Progress)
+\end{itemize}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item Solved 350+ algorithm problems on \href{https://www.geeksforgeeks.org/user/vishal362patel/}{GeeksforGeeks}.
+    \item Delivered secure, scalable Java microservices across academic, freelance, and professional work.
+    \item Participated in hackathons focused on cloud-native reliability, observability, and performance tuning.
+\end{itemize}
+
+\end{document}
