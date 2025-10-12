@@ -1,0 +1,170 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-0.85in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\normalsize\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item{#1 \vspace{-2pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-3pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2\\
+    \end{tabular*}\vspace{-4pt}
+}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in,label={},topsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[noitemsep,topsep=0pt,leftmargin=*]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\LARGE \scshape Vishal Patel} \\ \vspace{1pt}
+    Indore, India ~
+    \href{tel:+918103748593}{+91-8103748593} ~
+    \href{mailto:vishal362patel@gmail.com}{vishal362patel@gmail.com} ~
+    \href{https://www.linkedin.com/in/vishalpatel362}{LinkedIn} ~
+    \href{https://github.com/vishal362patel}{GitHub} ~
+    \href{https://trailblazer.me/id/vishal362patel}{Trailhead}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Professional Summary}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item Associate Salesforce Engineer with \textbf{1+ years} of hands-on experience delivering full life-cycle solutions across \textbf{Sales Cloud, Service Cloud, and Experience Cloud}. Proficient in \textbf{Apex, Triggers, Lightning Web Components (LWC), Aura, Visualforce}, and \textbf{point-and-click automation (Flows, Validation Rules, Approval Processes, Reports \& Dashboards)}. Skilled in \textbf{REST/SOAP integrations} using \textbf{Named Credentials} and \textbf{Postman}. Familiar with \textbf{multi-tenant architecture, metadata-driven development}, and \textbf{release/change management} using \textbf{Sandboxes, Change Sets, Salesforce DX}, and \textbf{CI/CD (Jenkins)}. Experienced with \textbf{Git/Bitbucket/GitHub}, \textbf{Data Loader, Workbench}, and basic \textbf{third-party integrations (MuleSoft, Zapier)}. Strong collaborator with a focus on \textbf{technical design documentation, estimation}, Agile/Scrum, and code quality.
+\end{itemize}
+
+%------------------------- 
+% Experience 
+%------------------------- 
+\section{Experience / Training}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Gruslabs Software Solutions Pvt. Ltd.}{Jan 2025 -- Present}
+{Salesforce Developer Intern}{Indore, India}
+\resumeItemListStart
+\resumeItem{Developed and maintained \textbf{Apex Classes, Triggers}, \textbf{LWC} and \textbf{Aura} components for product catalog, cart, and order management features following best practices (bulkification, limits-aware SOQL/SOSL).}
+\resumeItem{Configured point-and-click automation using \textbf{Record-Triggered Flows, Validation Rules, Approval Processes}, and built \textbf{Reports \& Dashboards} to improve data quality and visibility.}
+\resumeItem{Built and customized \textbf{Experience Cloud (B2B) Sites} with guest browsing, product discovery, and checkout flows using \textbf{Flows} and \textbf{Apex}.}
+\resumeItem{Integrated external systems via \textbf{REST APIs} with \textbf{Named Credentials}; handled JSON serialization/deserialization and tested endpoints using \textbf{Postman}.}
+\resumeItem{Executed \textbf{release management} across \textbf{Sandboxes} using \textbf{Change Sets} and basic \textbf{SFDX}; collaborated via \textbf{Git/Bitbucket} with pull requests and code reviews.}
+\resumeItem{Performed \textbf{unit testing, debugging}, and query optimization; utilized \textbf{Data Loader} and \textbf{Workbench} for data migration and troubleshooting.}
+\resumeItem{Authored concise \textbf{technical design documentation} and contributed to \textbf{effort estimates} with Tech Leads during sprint planning.}
+\resumeItemListEnd
+
+\resumeSubheading
+{InfoBeans Foundation}{Sept 2023 -- June 2024}
+{Software Developer Trainee}{Indore, India}
+\resumeItemListStart
+\resumeItem{Trained in \textbf{Java, OOP}, and backend design; translated concepts to \textbf{Apex}, \textbf{SOQL/SOSL}, and trigger patterns.}
+\resumeItem{Built foundational Salesforce admin/config artifacts including \textbf{data modeling}, validation, and \textbf{Flow}-based automation; followed Agile ceremonies using \textbf{JIRA}.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {\href{https://gruslabssoftwaresolutions-c-dev-ed.develop.my.site.com/}{GrusAgro Solutions ~| Experience Cloud (B2B Site)}}{Apr 2025 -- Jun 2025}
+\resumeItemListStart
+\resumeItem{Designed and launched a \textbf{B2B commerce site} using \textbf{Experience Cloud}, enabling guest users to search, filter, and purchase products with secure checkout.}
+\resumeItem{Developed \textbf{LWC} for dynamic search, filtering, and cart management using \textbf{Apex} controllers and \texttt{@wire}.}
+\resumeItem{Automated order processing and inventory updates via \textbf{Record-Triggered Flows} and \textbf{Apex} with platform limits in mind.}
+\resumeItem{Integrated external payment gateway through \textbf{REST API} with authentication and response handling; validated using \textbf{Postman}.}
+\resumeItem{Configured \textbf{Reports \& Dashboards} for order analytics; migrated seed data using \textbf{Data Loader}; deployed across \textbf{Sandboxes} via \textbf{Change Sets}.}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/vishal-patel01/Blood-Donation-Management-System}{Universal Blood Donation Web App}}{Jun 2024}
+\resumeItemListStart
+\resumeItem{Automated donor registration, scheduling, and validation with \textbf{Flows} and \textbf{Validation Rules}; implemented secure backend handling in \textbf{Apex} and \textbf{SOQL}.}
+\resumeItem{Created \textbf{Reports \& Dashboards} for donor metrics; executed bulk data operations with \textbf{Data Loader}.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item \textbf{Salesforce Platform:} Sales Cloud, Service Cloud, Experience Cloud (B2B), Multi-tenant architecture, Metadata model, Security (Profiles, Permission Sets, Sharing Rules)
+    \item \textbf{Development:} Apex Classes, Apex Triggers, Lightning Web Components (LWC), Aura, Visualforce, SOQL, SOSL, Batch Apex, Queueable, Schedulable, Platform Events (basic)
+    \item \textbf{Automation \& Reporting:} Flows (Record-Triggered, Screen, Scheduled), Process Builder (legacy), Validation Rules, Approval Processes, Reports \& Dashboards
+    \item \textbf{Integration:} REST APIs, SOAP APIs, Named Credentials, External Services (basic); Tools: Postman; Third-party: MuleSoft (familiar), Zapier (familiar)
+    \item \textbf{Data Tools:} Data Loader, Workbench; Data modeling, Data import/export
+    \item \textbf{DevOps \& Release:} Salesforce DX, Change Sets, Sandboxes, Git, Bitbucket, GitHub, Jenkins (CI/CD - basic), Code review practices
+    \item \textbf{Tooling \& Practices:} VS Code, Salesforce CLI/Extensions, Agile/Scrum, Technical design documentation, Estimation, Collaboration
+    \item \textbf{Programming \& Other:} Java, SQL, Postman, JIRA
+\end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV)}{2022 -- 2024}
+{\textbf{Master of Computer Applications (MCA)}, CGPA: 8.3}{Indore, India}
+\resumeSubheading
+{Devi Ahilya Vishwavidyalaya (DAVV)}{2019 -- 2022}
+{\textbf{Bachelor of Science (Computer Science)}}{Indore, India}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item Salesforce Certified AI Associate (2024)
+    \item Salesforce Trailhead Superbadges: Apex Specialist, LWC Specialist, Admin Super Set
+    \item GitHub Version Control Essentials
+\end{itemize}
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item Earned 70k+ points, 112+ badges, and 15+ trails on Salesforce Trailhead.
+    \item Solved 250+ DSA problems on GeeksforGeeks.
+    \item Achieved 90\%+ code coverage across new Apex code in projects.
+\end{itemize}
+
+%-----------KEYWORDS (ATS-optimized)-----------
+\section{Keywords}
+\begin{itemize}[leftmargin=0.15in,label={},topsep=0pt,noitemsep]
+    \item Salesforce Engineer, Sales Cloud, Service Cloud, Experience Cloud, Apex, Triggers, Visualforce, Lightning Web Components, LWC, Aura, Flows, Reports and Dashboards, REST, SOAP, Postman, Data Loader, Workbench, Salesforce DX, Sandboxes, Change Sets, CI/CD, Jenkins, Git, Bitbucket, GitHub, MuleSoft, Zapier, Technical Design Documentation, Estimation, Agile, JIRA, Multi-tenant Architecture, Metadata
+\end{itemize}
+
+\end{document}
